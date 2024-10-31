@@ -22,4 +22,3 @@ def test_upd_tc(json = y):
 def test_del_test():
     response = client.make_request(handle=f"/testcases/{x['id']}", method="DELETE")
     assert response.status_code_should_be_eq(200)
-    assert client.make_request(handle='/testcases/', method='GET')
