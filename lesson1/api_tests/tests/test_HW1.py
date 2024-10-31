@@ -13,7 +13,6 @@ y = d.update_case_dict
 @allure.story('Create a Test Case')
 def test_create_tc(json=x):
     response = client.make_request(handle="/testcases", method="POST", json=json)
-    logger.info("Ответ на получение всех тест-кейсов: %s", response.response.json())
     assert response.json_should_be_eq(x)
 
 @allure.feature('Test Cases')
@@ -32,5 +31,5 @@ def test_upd_tc(json = y):
 @allure.feature('Test Cases')
 @allure.story('Delete a Test Case')
 def test_del_test():
-    response = client.make_request(handle=f"/testcases/{y['id']}", method="DELETE")
+    response = client.make_request(handle=f"/testcases/{x['id']}", method="DELETE")
     assert response.status_code_should_be_eq(200) or response.status_code_should_be_eq(404)
